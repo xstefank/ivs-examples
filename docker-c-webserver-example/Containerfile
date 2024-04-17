@@ -3,11 +3,11 @@ FROM alpine:latest
 WORKDIR /app 
 
 # Installs gcc
-RUN apk add --no-cache build-base
+RUN apk add --no-cache build-base util-linux-dev mpc1-dev
 
 COPY . /app
-
-RUN gcc -o myapp main.c
+RUN ls /usr/lib
+RUN gcc -luuid -o myapp main.c
 
 EXPOSE 8080
 
