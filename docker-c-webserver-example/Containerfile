@@ -1,9 +1,11 @@
-FROM alpine:latest
+FROM alpine:3.21.3
 
 WORKDIR /app 
 
 # Installs gcc
-RUN apk add --no-cache build-base
+RUN apk add --no-cache build-base && \
+# Installs curl
+    apk add --no-cache curl
 
 COPY . /app
 
